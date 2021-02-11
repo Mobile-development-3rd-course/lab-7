@@ -14,7 +14,9 @@
 		ED295FB525D0448400041455 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED295FB425D0448400041455 /* Assets.xcassets */; };
 		ED295FB825D0448400041455 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED295FB625D0448400041455 /* LaunchScreen.storyboard */; };
 		ED295FC125D0461700041455 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = ED295FC025D0461700041455 /* .gitignore */; };
-		EDD3FC1625D049C600ECAB42 /* Protocol.md in Resources */ = {isa = PBXBuildFile; fileRef = EDD3FC1525D049C600ECAB42 /* Protocol.md */; };
+		ED7165B625D461E900D6920D /* DiagramView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7165B525D461E900D6920D /* DiagramView.swift */; };
+		EDACB51B25D21BB100F9B845 /* DrawingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDACB51A25D21BB100F9B845 /* DrawingViewController.swift */; };
+		EDB6FBA125D2C5E600EE4CD5 /* CosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB6FBA025D2C5E600EE4CD5 /* CosView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,7 +29,9 @@
 		ED295FB725D0448400041455 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ED295FB925D0448400041455 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ED295FC025D0461700041455 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		EDD3FC1525D049C600ECAB42 /* Protocol.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Protocol.md; sourceTree = "<group>"; };
+		ED7165B525D461E900D6920D /* DiagramView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiagramView.swift; sourceTree = "<group>"; };
+		EDACB51A25D21BB100F9B845 /* DrawingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingViewController.swift; sourceTree = "<group>"; };
+		EDB6FBA025D2C5E600EE4CD5 /* CosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CosView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,10 +45,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		ED15076125D4BC9B0021CFB8 /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				EDACB51A25D21BB100F9B845 /* DrawingViewController.swift */,
+				ED295FAF25D0448300041455 /* ViewController.swift */,
+			);
+			path = controllers;
+			sourceTree = "<group>";
+		};
+		ED15076225D4BCA40021CFB8 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				ED295FB125D0448300041455 /* Main.storyboard */,
+				EDB6FBA025D2C5E600EE4CD5 /* CosView.swift */,
+				ED295FB625D0448400041455 /* LaunchScreen.storyboard */,
+				ED295FB425D0448400041455 /* Assets.xcassets */,
+				ED7165B525D461E900D6920D /* DiagramView.swift */,
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
+		ED15076325D4BD700021CFB8 /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				ED295FAD25D0448300041455 /* SceneDelegate.swift */,
+				ED295FAB25D0448300041455 /* AppDelegate.swift */,
+			);
+			path = resources;
+			sourceTree = "<group>";
+		};
 		ED295F9F25D0448300041455 = {
 			isa = PBXGroup;
 			children = (
-				EDD3FC1525D049C600ECAB42 /* Protocol.md */,
 				ED295FC025D0461700041455 /* .gitignore */,
 				ED295FAA25D0448300041455 /* lab-1.1 */,
 				ED295FA925D0448300041455 /* Products */,
@@ -62,12 +95,9 @@
 		ED295FAA25D0448300041455 /* lab-1.1 */ = {
 			isa = PBXGroup;
 			children = (
-				ED295FAB25D0448300041455 /* AppDelegate.swift */,
-				ED295FAD25D0448300041455 /* SceneDelegate.swift */,
-				ED295FAF25D0448300041455 /* ViewController.swift */,
-				ED295FB125D0448300041455 /* Main.storyboard */,
-				ED295FB425D0448400041455 /* Assets.xcassets */,
-				ED295FB625D0448400041455 /* LaunchScreen.storyboard */,
+				ED15076325D4BD700021CFB8 /* resources */,
+				ED15076225D4BCA40021CFB8 /* views */,
+				ED15076125D4BC9B0021CFB8 /* controllers */,
 				ED295FB925D0448400041455 /* Info.plist */,
 			);
 			path = "lab-1.1";
@@ -134,7 +164,6 @@
 				ED295FB825D0448400041455 /* LaunchScreen.storyboard in Resources */,
 				ED295FB525D0448400041455 /* Assets.xcassets in Resources */,
 				ED295FB325D0448300041455 /* Main.storyboard in Resources */,
-				EDD3FC1625D049C600ECAB42 /* Protocol.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,7 +174,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED7165B625D461E900D6920D /* DiagramView.swift in Sources */,
+				EDB6FBA125D2C5E600EE4CD5 /* CosView.swift in Sources */,
 				ED295FB025D0448300041455 /* ViewController.swift in Sources */,
+				EDACB51B25D21BB100F9B845 /* DrawingViewController.swift in Sources */,
 				ED295FAC25D0448300041455 /* AppDelegate.swift in Sources */,
 				ED295FAE25D0448300041455 /* SceneDelegate.swift in Sources */,
 			);
