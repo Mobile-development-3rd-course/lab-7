@@ -62,7 +62,43 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iVF-xd-11w" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="817.5" y="652.81690140845069"/>
+            <point key="canvasLocation" x="816" y="663"/>
+        </scene>
+        <!--Lab3-->
+        <scene sceneID="Jdx-9R-Vnc">
+            <objects>
+                <navigationController id="akL-8l-zkd" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Lab3" image="folder.fill" catalog="system" id="UPG-UL-Gap"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="cA6-Mz-kSj">
+                        <rect key="frame" x="0.0" y="44" width="428" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="mkF-Sz-Ffy" kind="relationship" relationship="rootViewController" id="IHq-dZ-Tgj"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0lA-Iv-yWK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-227" y="908"/>
+        </scene>
+        <!--Lab3TableView-->
+        <scene sceneID="PY1-AN-OnO">
+            <objects>
+                <viewController id="mkF-Sz-Ffy" customClass="ListViewController" customModule="lab_1_1" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="w4z-zW-zSO">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Lab3TableView" image="folder.fill" catalog="system" id="Zig-xp-A6l"/>
+                    <navigationItem key="navigationItem" id="1XD-N2-2XT"/>
+                    <connections>
+                        <outlet property="tableView" destination="w4z-zW-zSO" id="jiA-CP-oXp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="S95-dB-7TX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-227" y="1644"/>
         </scene>
         <!--lab1.1-->
         <scene sceneID="Vf1-4M-zYg">
@@ -93,7 +129,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Ce-Ct-Mr4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="819" y="-59"/>
+            <point key="canvasLocation" x="816" y="-42"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="kUV-Zw-SDb">
@@ -107,6 +143,7 @@
                     <connections>
                         <segue destination="6AO-xU-uGz" kind="relationship" relationship="viewControllers" id="LaO-tc-ZaI"/>
                         <segue destination="2tA-dt-Xi2" kind="relationship" relationship="viewControllers" id="7QR-C8-Qoo"/>
+                        <segue destination="akL-8l-zkd" kind="relationship" relationship="viewControllers" id="v1T-Mh-bsq"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VvP-Dw-OU3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -115,6 +152,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="folder.fill" catalog="system" width="128" height="97"/>
         <image name="hand.draw.fill" catalog="system" width="128" height="109"/>
         <image name="pencil" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
