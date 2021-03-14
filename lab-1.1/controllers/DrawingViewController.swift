@@ -29,8 +29,5 @@ class DrawingViewController: UIViewController {
         default:
             break
         }
-        
     }
-    
-    
 }

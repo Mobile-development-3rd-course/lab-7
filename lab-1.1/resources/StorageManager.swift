@@ -34,10 +34,17 @@ extension StorageManager {
         return jsonBooks
     }
     
+    func parseDetailBookJson(ForIdentifier identifier: String) -> DetailedBook? {
+        if let fileContent = readLocalFile(forName: identifier, forType: "txt") {
+            let jsonBooks = try? JSONDecoder().decode(DetailedBook.self, from: fileContent)
+            return jsonBooks
+        }
+        print("file are not in storage")
+        return nil
+    }
     func getImageName (forBook book: Book) -> String {
         return book.image
     }
-
     
 }
 
