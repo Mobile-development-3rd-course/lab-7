@@ -6,9 +6,10 @@
 Кафедра обчислювальної техніки<br><br><br><br>
 </strong></div>
 
-<div align = "center" bold = ""><strong>ЛАБОРАТОРНА РОБОТА № 1</strong><br><br>
+<div align = "center" bold = ""><strong>ЛАБОРАТОРНА РОБОТА № 4</strong><br><br>
 з дисципліни «Розроблення клієнтських додатків для мобільних платформ»<br>
-на тему «Знайомство з Xcode, створення першого проекту»</div><br><br><br><br>
+на тему «Використання UITableViewDataSource, UITableViewDelegate, UISearchBar, UISearchBarDelegate, UILabel, UIImageView, UITextField, UIButton, segues, Codable
+»</div><br><br><br><br>
 
 <div align = "right" >Виконав:<br>
 студент ІІІ курсу ФІОТ<br>                        
@@ -18,103 +19,26 @@
 
 <div align = "center">Київ – 2021</div><br><br><br><br>
 
-<strong>Робота виконується без варіанту.</strong><br>
+<strong>Варіант роботи номер 2.</strong><br>
 <strong>Скріншоти роботи застосунка:</strong><br>
-1. Bundle identifier<br>
-<p align = "center"><img src="https://i.imgur.com/ibLUz0Y.png" alt="bundle identifier"/></p><br>
+1. Portrait<br>
+![image](https://user-images.githubusercontent.com/42568173/111085109-8b72c600-851e-11eb-8476-23da55f5b79c.png)
+![image](https://user-images.githubusercontent.com/42568173/111085125-a2b1b380-851e-11eb-9f7b-02c4adef08f9.png)
+![image](https://user-images.githubusercontent.com/42568173/111085135-b0673900-851e-11eb-840e-df1dccbdc3f3.png)
+![image](https://user-images.githubusercontent.com/42568173/111085144-b9580a80-851e-11eb-8a78-53fe6c736c29.png)
+![image](https://user-images.githubusercontent.com/42568173/111085146-bf4deb80-851e-11eb-9594-3d41865db434.png)
+![image](https://user-images.githubusercontent.com/42568173/111085158-cecd3480-851e-11eb-9b46-409e32546c9c.png)
+![simulator_screenshot_DA658907-65C0-4B8F-9C13-C9E0FD0FB946](https://user-images.githubusercontent.com/42568173/111085170-ddb3e700-851e-11eb-879a-25e6bb616c12.png)
 
-2. Наявність іконки застосунка для всіх необхідних правильних розмірів
-<p align = "center"><img src="https://i.imgur.com/UiasD9I.png" alt="icons"/></p><br>
+2. Landscape
 
-3. Застосунок побудований на основі навігаційної моделі вкладок
-<p align = "center"><img src="https://i.imgur.com/fWOzSNk.png" alt="model"/></p><br>
-
-4. Правильно налаштована мітка з персональними даними студента
-<p align = "center"><img src="https://i.imgur.com/bUQ9ok3.png" alt="info about student"/></p><br>
-
-5. Вказана назва та визначене зображення для вкладки, що налаштовувалася
-<p align = "center"><img src="https://i.imgur.com/RKOEyfE.png" alt="image and name for item"/></p><br>
-
-6. Проєкт збирається та запускається
-<p align = "center"><img src="https://i.imgur.com/UQ7alZ8.png" alt="the project is working properly"/></p><br>
-
-<strong>Лістинг коду:</strong><br>
-<i>ViewController.swift</i>
-```swift
-import UIKit
-class ViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-    }
-
-
-}
-```
-
-<i>SceneDelegate.swift</i>
-```swift
-import UIKit
-
-@main
-class AppDelegate: UIResponder, UIApplicationDelegate {
+![simulator_screenshot_8885EA27-1E10-47AC-8166-D56EDBC05843](https://user-images.githubusercontent.com/42568173/111085201-ffad6980-851e-11eb-8f5e-424c787f547c.png)
+![simulator_screenshot_58513B56-53A4-4615-90D1-419C5A586942](https://user-images.githubusercontent.com/42568173/111085217-0dfb8580-851f-11eb-9529-273c6b0d5c2e.png)
+![simulator_screenshot_5C0D6BF4-1F47-4B70-BC1C-31FDFAE201EA](https://user-images.githubusercontent.com/42568173/111085272-5024c700-851f-11eb-82cb-addba448dc19.png)
+![simulator_screenshot_D65DA642-71B2-4506-B249-344BEEF37A0C](https://user-images.githubusercontent.com/42568173/111085261-3f745100-851f-11eb-872a-ff74ec8f38da.png)
 
 
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-        return true
-    }
-
-    // MARK: UISceneSession Lifecycle
-
-    func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
-        // Called when a new scene session is being created.
-        // Use this method to select a configuration to create the new scene with.
-        return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
-    }
-
-    func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
-        // Called when the user discards a scene session.
-        // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
-        // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
-    }
-
-
-}
-```
-
-<i>AppDelegate.swift</i>
-```swift
-import UIKit
-
-@main
-class AppDelegate: UIResponder, UIApplicationDelegate {
-
-
-
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-        return true
-    }
-
-    // MARK: UISceneSession Lifecycle
-
-    func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
-        // Called when a new scene session is being created.
-        // Use this method to select a configuration to create the new scene with.
-        return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
-    }
-
-    func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
-        // Called when the user discards a scene session.
-        // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
-        // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
-    }
-
-
-}
-```
+<strong>Лістинг коду ви можете побачити в цьому репозиторію.</strong><br>
 <strong>Висновок:</strong><br>
-На першій лабораторній роботі я познайомився з інтегрованим середовищем розробки Xcode, створив свій перший проєкт.
+На четвертій лабораторній роботі я познайомився з використанням UITableViewDataSource, UITableViewDelegate, UISearchBar, UISearchBarDelegate, UILabel, UIImageView, UITextField, UIButton, segues, Codable.
