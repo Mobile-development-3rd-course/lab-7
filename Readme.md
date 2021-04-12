@@ -21,11 +21,9 @@
 <strong>Варіант роботи номер 2.</strong><br>
 <strong>Скріншоти роботи застосунка:</strong><br>
 1. Portrait<br>
-<center>
 ![image](https://user-images.githubusercontent.com/42568173/114440485-e1489580-9bd2-11eb-811d-fe66db4c98ff.png))
 ![image](https://user-images.githubusercontent.com/42568173/114440699-1e148c80-9bd3-11eb-9973-8bed8888ca15.png)
 ![image](https://user-images.githubusercontent.com/42568173/114440738-2967b800-9bd3-11eb-8029-36db74ff424b.png)
-</center>
 
 2. Landscape
 ![image](https://user-images.githubusercontent.com/42568173/114440777-34224d00-9bd3-11eb-8303-357829f754f5.png)
