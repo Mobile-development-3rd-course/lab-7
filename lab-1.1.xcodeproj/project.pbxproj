@@ -33,6 +33,9 @@
 		EDAC639625FD8CA9002B9254 /* AddBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAC639525FD8CA9002B9254 /* AddBookViewController.swift */; };
 		EDACB51B25D21BB100F9B845 /* DrawingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDACB51A25D21BB100F9B845 /* DrawingViewController.swift */; };
 		EDB6FBA125D2C5E600EE4CD5 /* CosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB6FBA025D2C5E600EE4CD5 /* CosView.swift */; };
+		EDB792C12624BDA800FC2904 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB792C02624BDA800FC2904 /* ImageViewController.swift */; };
+		EDB792C62624BE1B00FC2904 /* MyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB792C42624BE1B00FC2904 /* MyCollectionViewCell.swift */; };
+		EDB792C72624BE1B00FC2904 /* MyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDB792C52624BE1B00FC2904 /* MyCollectionViewCell.xib */; };
 		EDC84E2525EB90D000BEFB9F /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC84E2425EB90D000BEFB9F /* ListViewController.swift */; };
 		EDD02FDA25EBB8E400784571 /* Image_07.png in Resources */ = {isa = PBXBuildFile; fileRef = EDD02FD225EBB8E300784571 /* Image_07.png */; };
 		EDD02FDB25EBB8E400784571 /* Image_01.png in Resources */ = {isa = PBXBuildFile; fileRef = EDD02FD325EBB8E300784571 /* Image_01.png */; };
@@ -74,6 +77,9 @@
 		EDAC639525FD8CA9002B9254 /* AddBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookViewController.swift; sourceTree = "<group>"; };
 		EDACB51A25D21BB100F9B845 /* DrawingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingViewController.swift; sourceTree = "<group>"; };
 		EDB6FBA025D2C5E600EE4CD5 /* CosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CosView.swift; sourceTree = "<group>"; };
+		EDB792C02624BDA800FC2904 /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
+		EDB792C42624BE1B00FC2904 /* MyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCollectionViewCell.swift; sourceTree = "<group>"; };
+		EDB792C52624BE1B00FC2904 /* MyCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyCollectionViewCell.xib; sourceTree = "<group>"; };
 		EDC84E2425EB90D000BEFB9F /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		EDD02FD225EBB8E300784571 /* Image_07.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Image_07.png; sourceTree = "<group>"; };
 		EDD02FD325EBB8E300784571 /* Image_01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Image_01.png; sourceTree = "<group>"; };
@@ -105,6 +111,7 @@
 				EDC84E2425EB90D000BEFB9F /* ListViewController.swift */,
 				EDE3F66B25F99F7200A8B7DB /* DetailBookViewController.swift */,
 				EDAC639525FD8CA9002B9254 /* AddBookViewController.swift */,
+				EDB792C02624BDA800FC2904 /* ImageViewController.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -112,6 +119,7 @@
 		ED15076225D4BCA40021CFB8 /* views */ = {
 			isa = PBXGroup;
 			children = (
+				EDB792C32624BDEA00FC2904 /* ImageViewCell */,
 				ED80B88725F3B51C0021D5F1 /* TableViewCell */,
 				ED295FB125D0448300041455 /* Main.storyboard */,
 				EDB6FBA025D2C5E600EE4CD5 /* CosView.swift */,
@@ -213,6 +221,15 @@
 			path = TableViewCell;
 			sourceTree = "<group>";
 		};
+		EDB792C32624BDEA00FC2904 /* ImageViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				EDB792C42624BE1B00FC2904 /* MyCollectionViewCell.swift */,
+				EDB792C52624BE1B00FC2904 /* MyCollectionViewCell.xib */,
+			);
+			path = ImageViewCell;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -290,6 +307,7 @@
 				ED295FB325D0448300041455 /* Main.storyboard in Resources */,
 				EDD02FDA25EBB8E400784571 /* Image_07.png in Resources */,
 				ED80B87825F3B0DE0021D5F1 /* 9781449308360.txt in Resources */,
+				EDB792C72624BE1B00FC2904 /* MyCollectionViewCell.xib in Resources */,
 				ED80B87C25F3B0DE0021D5F1 /* 9781430238072.txt in Resources */,
 				EDD02FDF25EBB8E400784571 /* Image_06.png in Resources */,
 				ED80B87725F3B0DE0021D5F1 /* 9781430237105.txt in Resources */,
@@ -310,7 +328,9 @@
 				EDAC639625FD8CA9002B9254 /* AddBookViewController.swift in Sources */,
 				ED4F870E25E6A28700EF3FB2 /* Book.swift in Sources */,
 				ED295FB025D0448300041455 /* ViewController.swift in Sources */,
+				EDB792C12624BDA800FC2904 /* ImageViewController.swift in Sources */,
 				EDACB51B25D21BB100F9B845 /* DrawingViewController.swift in Sources */,
+				EDB792C62624BE1B00FC2904 /* MyCollectionViewCell.swift in Sources */,
 				ED33437B25EBA66200649054 /* TableViewCell.swift in Sources */,
 				EDC84E2525EB90D000BEFB9F /* ListViewController.swift in Sources */,
 				ED295FAC25D0448300041455 /* AppDelegate.swift in Sources */,
