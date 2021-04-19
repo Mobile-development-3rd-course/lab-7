@@ -17,23 +17,23 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GMP-ZD-beZ" customClass="CosView" customModule="lab_1_1" customModuleProvider="target">
-                                <rect key="frame" x="69" y="318" width="290" height="290"/>
+                                <rect key="frame" x="90" y="339" width="248" height="248"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="290" id="aFD-LZ-PyV"/>
-                                    <constraint firstAttribute="width" constant="290" id="gjn-vr-8Kz"/>
+                                    <constraint firstAttribute="height" constant="248" id="aFD-LZ-PyV"/>
+                                    <constraint firstAttribute="width" constant="248" id="gjn-vr-8Kz"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pgL-gI-U44" userLabel="Diagram" customClass="DiagramView" customModule="lab_1_1" customModuleProvider="target">
-                                <rect key="frame" x="69" y="318" width="290" height="290"/>
+                                <rect key="frame" x="90" y="339" width="248" height="248"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="290" id="l6t-yt-hgq"/>
-                                    <constraint firstAttribute="width" constant="290" id="lkh-4b-KvM"/>
+                                    <constraint firstAttribute="height" constant="248" id="l6t-yt-hgq"/>
+                                    <constraint firstAttribute="width" constant="248" id="lkh-4b-KvM"/>
                                 </constraints>
                             </view>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Rdv-W7-5zb">
-                                <rect key="frame" x="135.66666666666666" y="279" width="156.99999999999997" height="32"/>
+                                <rect key="frame" x="135.66666666666666" y="308" width="156.99999999999997" height="32"/>
                                 <segments>
                                     <segment title="Графік"/>
                                     <segment title="Діаграма"/>
@@ -48,10 +48,10 @@
                         <constraints>
                             <constraint firstItem="GMP-ZD-beZ" firstAttribute="centerX" secondItem="0Mo-c9-l66" secondAttribute="centerX" id="5gQ-wV-l7T"/>
                             <constraint firstItem="pgL-gI-U44" firstAttribute="leading" secondItem="GMP-ZD-beZ" secondAttribute="leading" id="6gp-LX-YD0"/>
+                            <constraint firstItem="Rdv-W7-5zb" firstAttribute="centerX" secondItem="pgL-gI-U44" secondAttribute="centerX" id="Ckw-Wk-y63"/>
                             <constraint firstItem="GMP-ZD-beZ" firstAttribute="centerY" secondItem="0Mo-c9-l66" secondAttribute="centerY" id="MJV-uV-TR1"/>
-                            <constraint firstItem="GMP-ZD-beZ" firstAttribute="top" secondItem="Rdv-W7-5zb" secondAttribute="bottom" constant="8" id="NmR-Sd-5sg"/>
-                            <constraint firstItem="Rdv-W7-5zb" firstAttribute="centerX" secondItem="GMP-ZD-beZ" secondAttribute="centerX" id="UAB-bD-s5B"/>
                             <constraint firstItem="pgL-gI-U44" firstAttribute="top" secondItem="GMP-ZD-beZ" secondAttribute="top" id="UfK-9b-Ubm"/>
+                            <constraint firstItem="pgL-gI-U44" firstAttribute="top" secondItem="Rdv-W7-5zb" secondAttribute="bottom" id="rFv-yu-cNT"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="lab2" image="hand.draw.fill" catalog="system" id="Epx-k9-4io"/>
