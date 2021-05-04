@@ -14,6 +14,19 @@ class ListViewController: UIViewController {
     private var books: [Book] = []
     private var filteredBooks: [Book] = []
     
+    lazy var booksNotFoundView: UIView = {
+        let emptyView = UIView(frame: CGRect(x: tableView.center.x, y: tableView.center.y, width: tableView.bounds.size.width, height: tableView.bounds.size.height))
+                let emptyLabel = UILabel()
+                emptyView.addSubview(emptyLabel)
+
+        emptyLabel.translatesAutoresizingMaskIntoConstraints = false
+        emptyLabel.centerYAnchor.constraint(equalTo: emptyView.centerYAnchor).isActive = true
+        emptyLabel.centerXAnchor.constraint(equalTo: emptyView.centerXAnchor).isActive = true
+        emptyLabel.text = "Books have not found..."
+        emptyLabel.textColor = .systemBlue
+        return emptyView
+    }()
+    
     lazy var searchBarController: UISearchController = {
         let searchBarController = UISearchController(searchResultsController: nil)
         searchBarController.obscuresBackgroundDuringPresentation = false
@@ -22,9 +35,11 @@ class ListViewController: UIViewController {
         searchBarController.searchBar.sizeToFit()
         searchBarController.searchBar.isTranslucent = false
         searchBarController.searchBar.delegate = self
+        searchBarController.searchBar.searchTextField.clearButtonMode = .never
         navigationItem.hidesSearchBarWhenScrolling = false
         navigationItem.searchController = searchBarController
         searchBarController.searchResultsUpdater = self
+        
         navigationItem.rightBarButtonItem = {
             UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addBook))
         }()
@@ -33,9 +48,11 @@ class ListViewController: UIViewController {
     }()
     
     @objc private func addBook() {
-        let addBookViewController = storyboard?.instantiateViewController(identifier: "AddBookViewController") as! AddBookViewController
-        addBookViewController.delegate = self
-        navigationController?.pushViewController(addBookViewController, animated: true)
+        
+        let testViewController = AddBookViewController()
+        testViewController.delegate = self
+
+        navigationController?.pushViewController(testViewController, animated: true)
     }
     
     
@@ -59,8 +76,23 @@ class ListViewController: UIViewController {
 extension ListViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
+    
         if !(searchBarController.searchBar.text?.isEmpty ?? true) {
+            if (filteredBooks.isEmpty) {
+                tableView.backgroundView = nil
+                tableView.separatorStyle = .none
+                booksNotFoundView.center = CGPoint(x: tableView.frame.size.width  / 2,
+                                           y: tableView.frame.size.height / 2)
+                tableView.addSubview(booksNotFoundView)
+            } else {
+                
+                tableView.separatorStyle = .singleLine
+                for subview in self.view.subviews {
+                    subview.removeFromSuperview()
+                }
+               
+            }
+            
             return filteredBooks.count
         }
         
@@ -99,11 +131,11 @@ extension ListViewController: UITableViewDataSource, UITableViewDelegate {
             book = books[indexPath.row]
         }
         
-        guard let detailBookByIdentifier = StorageManager.shared.parseDetailBookJson(ForIdentifier: book.isbn13),
-              let detailBook = storyboard?.instantiateViewController(identifier: "DetailBookViewController") as? DetailBookViewController else {
+        guard let detailBookByIdentifier = StorageManager.shared.parseDetailBookJson(ForIdentifier: book.isbn13) else {
             return
         }
         
+        let detailBook = DetailBookViewController()
         navigationController?.pushViewController(detailBook, animated: true)
         
         detailBook.detailImage = detailBookByIdentifier.image
@@ -124,6 +156,7 @@ extension ListViewController: UITableViewDataSource, UITableViewDelegate {
             if !(searchBarController.searchBar.text?.isEmpty ?? true) {
                 book = filteredBooks[indexPath.row]
                 filteredBooks.remove(at: indexPath.row)
+                
                 guard let index = books.firstIndex(of: book!) else {
                     return
                 }
@@ -133,23 +166,32 @@ extension ListViewController: UITableViewDataSource, UITableViewDelegate {
             }
             
             tableView.deleteRows(at: [indexPath], with: .left)
+            tableView.reloadData()
         }
     }
 }
 
 extension ListViewController: UINavigationControllerDelegate, UISearchBarDelegate, UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
+        
         filteredBooks = books.filter ({
+            
             let searchBarLowercasedText = (searchController.searchBar.searchTextField.text?.lowercased())
             return $0.title.lowercased().contains(searchBarLowercasedText!) ||
                 $0.subtitle.lowercased().contains(searchBarLowercasedText!) ||
                 $0.isbn13.lowercased().contains(searchBarLowercasedText!) ||
                 $0.price.lowercased().contains(searchBarLowercasedText!)
         })
-        
         tableView.reloadData()
     }
     
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        tableView.separatorStyle = .singleLine
+        for subview in self.view.subviews {
+            subview.removeFromSuperview()
+        }
+        print("Cancel tapped")
+    }
 }
 
 extension ListViewController: AddBookDelegate {

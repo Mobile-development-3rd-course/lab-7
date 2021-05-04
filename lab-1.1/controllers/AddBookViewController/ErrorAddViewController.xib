@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ErrorAddViewController" customModule="lab_1_1" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="rcI-PV-8Mt" id="TEd-Uf-N4N"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="rcI-PV-8Mt">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You have entered incorrect data, please, try again." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8t2-kS-iMI">
+                    <rect key="frame" x="16.5" y="438" width="381" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="N2W-BB-owH"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="8t2-kS-iMI" firstAttribute="leading" secondItem="N2W-BB-owH" secondAttribute="leading" constant="16.5" id="WkQ-Kh-F6c"/>
+                <constraint firstItem="8t2-kS-iMI" firstAttribute="centerY" secondItem="rcI-PV-8Mt" secondAttribute="centerY" id="Yk2-Rp-Lft"/>
+                <constraint firstItem="N2W-BB-owH" firstAttribute="trailing" secondItem="8t2-kS-iMI" secondAttribute="trailing" constant="16.5" id="wSm-Rf-ng2"/>
+                <constraint firstItem="8t2-kS-iMI" firstAttribute="centerX" secondItem="rcI-PV-8Mt" secondAttribute="centerX" id="zUP-sG-Ttb"/>
+            </constraints>
+            <point key="canvasLocation" x="-180" y="96"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

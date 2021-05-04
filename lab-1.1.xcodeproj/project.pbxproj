@@ -29,8 +29,13 @@
 		ED80B87E25F3B0DE0021D5F1 /* 9780321862969.txt in Resources */ = {isa = PBXBuildFile; fileRef = ED80B87425F3B0DE0021D5F1 /* 9780321862969.txt */; };
 		ED80B87F25F3B0DE0021D5F1 /* 9780321856715.txt in Resources */ = {isa = PBXBuildFile; fileRef = ED80B87525F3B0DE0021D5F1 /* 9780321856715.txt */; };
 		ED80B88025F3B0DE0021D5F1 /* 9781430260226.txt in Resources */ = {isa = PBXBuildFile; fileRef = ED80B87625F3B0DE0021D5F1 /* 9781430260226.txt */; };
+		ED96F81B2641F68E0053C67A /* DetailBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED96F8192641F68E0053C67A /* DetailBookViewController.swift */; };
+		ED96F81C2641F68E0053C67A /* DetailBookViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED96F81A2641F68E0053C67A /* DetailBookViewController.xib */; };
+		ED96F81F2641F69F0053C67A /* AddBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED96F81D2641F69F0053C67A /* AddBookViewController.swift */; };
+		ED96F8202641F69F0053C67A /* AddBookViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED96F81E2641F69F0053C67A /* AddBookViewController.xib */; };
+		ED96F8232641F6AC0053C67A /* ErrorAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED96F8212641F6AC0053C67A /* ErrorAddViewController.swift */; };
+		ED96F8242641F6AC0053C67A /* ErrorAddViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED96F8222641F6AC0053C67A /* ErrorAddViewController.xib */; };
 		EDA575E125E8E9F300173EA6 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA575E025E8E9F300173EA6 /* StorageManager.swift */; };
-		EDAC639625FD8CA9002B9254 /* AddBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAC639525FD8CA9002B9254 /* AddBookViewController.swift */; };
 		EDACB51B25D21BB100F9B845 /* DrawingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDACB51A25D21BB100F9B845 /* DrawingViewController.swift */; };
 		EDB6FBA125D2C5E600EE4CD5 /* CosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB6FBA025D2C5E600EE4CD5 /* CosView.swift */; };
 		EDB792C12624BDA800FC2904 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB792C02624BDA800FC2904 /* ImageViewController.swift */; };
@@ -45,7 +50,6 @@
 		EDD02FDF25EBB8E400784571 /* Image_06.png in Resources */ = {isa = PBXBuildFile; fileRef = EDD02FD725EBB8E400784571 /* Image_06.png */; };
 		EDD02FE025EBB8E400784571 /* Image_05.png in Resources */ = {isa = PBXBuildFile; fileRef = EDD02FD825EBB8E400784571 /* Image_05.png */; };
 		EDD02FE125EBB8E400784571 /* Image_02.png in Resources */ = {isa = PBXBuildFile; fileRef = EDD02FD925EBB8E400784571 /* Image_02.png */; };
-		EDE3F66C25F99F7200A8B7DB /* DetailBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE3F66B25F99F7200A8B7DB /* DetailBookViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,8 +77,13 @@
 		ED80B87425F3B0DE0021D5F1 /* 9780321862969.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 9780321862969.txt; sourceTree = "<group>"; };
 		ED80B87525F3B0DE0021D5F1 /* 9780321856715.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 9780321856715.txt; sourceTree = "<group>"; };
 		ED80B87625F3B0DE0021D5F1 /* 9781430260226.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 9781430260226.txt; sourceTree = "<group>"; };
+		ED96F8192641F68E0053C67A /* DetailBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailBookViewController.swift; sourceTree = "<group>"; };
+		ED96F81A2641F68E0053C67A /* DetailBookViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailBookViewController.xib; sourceTree = "<group>"; };
+		ED96F81D2641F69F0053C67A /* AddBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookViewController.swift; sourceTree = "<group>"; };
+		ED96F81E2641F69F0053C67A /* AddBookViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddBookViewController.xib; sourceTree = "<group>"; };
+		ED96F8212641F6AC0053C67A /* ErrorAddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorAddViewController.swift; sourceTree = "<group>"; };
+		ED96F8222641F6AC0053C67A /* ErrorAddViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ErrorAddViewController.xib; sourceTree = "<group>"; };
 		EDA575E025E8E9F300173EA6 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
-		EDAC639525FD8CA9002B9254 /* AddBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookViewController.swift; sourceTree = "<group>"; };
 		EDACB51A25D21BB100F9B845 /* DrawingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingViewController.swift; sourceTree = "<group>"; };
 		EDB6FBA025D2C5E600EE4CD5 /* CosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CosView.swift; sourceTree = "<group>"; };
 		EDB792C02624BDA800FC2904 /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
@@ -89,7 +98,6 @@
 		EDD02FD725EBB8E400784571 /* Image_06.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Image_06.png; sourceTree = "<group>"; };
 		EDD02FD825EBB8E400784571 /* Image_05.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Image_05.png; sourceTree = "<group>"; };
 		EDD02FD925EBB8E400784571 /* Image_02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Image_02.png; sourceTree = "<group>"; };
-		EDE3F66B25F99F7200A8B7DB /* DetailBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailBookViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,11 +114,11 @@
 		ED15076125D4BC9B0021CFB8 /* controllers */ = {
 			isa = PBXGroup;
 			children = (
+				ED96F8182641F5B90053C67A /* AddBookViewController */,
+				ED96F8172641F5AC0053C67A /* DetailBookViewController */,
 				EDACB51A25D21BB100F9B845 /* DrawingViewController.swift */,
 				ED295FAF25D0448300041455 /* ViewController.swift */,
 				EDC84E2425EB90D000BEFB9F /* ListViewController.swift */,
-				EDE3F66B25F99F7200A8B7DB /* DetailBookViewController.swift */,
-				EDAC639525FD8CA9002B9254 /* AddBookViewController.swift */,
 				EDB792C02624BDA800FC2904 /* ImageViewController.swift */,
 			);
 			path = controllers;
@@ -221,6 +229,26 @@
 			path = TableViewCell;
 			sourceTree = "<group>";
 		};
+		ED96F8172641F5AC0053C67A /* DetailBookViewController */ = {
+			isa = PBXGroup;
+			children = (
+				ED96F8192641F68E0053C67A /* DetailBookViewController.swift */,
+				ED96F81A2641F68E0053C67A /* DetailBookViewController.xib */,
+			);
+			path = DetailBookViewController;
+			sourceTree = "<group>";
+		};
+		ED96F8182641F5B90053C67A /* AddBookViewController */ = {
+			isa = PBXGroup;
+			children = (
+				ED96F81D2641F69F0053C67A /* AddBookViewController.swift */,
+				ED96F81E2641F69F0053C67A /* AddBookViewController.xib */,
+				ED96F8212641F6AC0053C67A /* ErrorAddViewController.swift */,
+				ED96F8222641F6AC0053C67A /* ErrorAddViewController.xib */,
+			);
+			path = AddBookViewController;
+			sourceTree = "<group>";
+		};
 		EDB792C32624BDEA00FC2904 /* ImageViewCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -292,6 +320,7 @@
 				EDD02FDD25EBB8E400784571 /* Image_08.png in Resources */,
 				ED80B87925F3B0DE0021D5F1 /* 9781430236054.txt in Resources */,
 				ED33437C25EBA66200649054 /* TableViewCell.xib in Resources */,
+				ED96F8242641F6AC0053C67A /* ErrorAddViewController.xib in Resources */,
 				ED80B87B25F3B0DE0021D5F1 /* 9781430245124.txt in Resources */,
 				EDD02FDB25EBB8E400784571 /* Image_01.png in Resources */,
 				ED80B87A25F3B0DE0021D5F1 /* 9781449342753.txt in Resources */,
@@ -301,7 +330,9 @@
 				ED80B87F25F3B0DE0021D5F1 /* 9780321856715.txt in Resources */,
 				EDD02FE025EBB8E400784571 /* Image_05.png in Resources */,
 				EDD02FDC25EBB8E400784571 /* Image_03.png in Resources */,
+				ED96F81C2641F68E0053C67A /* DetailBookViewController.xib in Resources */,
 				EDD02FDE25EBB8E400784571 /* Image_10.png in Resources */,
+				ED96F8202641F69F0053C67A /* AddBookViewController.xib in Resources */,
 				ED80B87D25F3B0DE0021D5F1 /* 9781118841471.txt in Resources */,
 				ED295FB525D0448400041455 /* Assets.xcassets in Resources */,
 				ED295FB325D0448300041455 /* Main.storyboard in Resources */,
@@ -323,18 +354,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED7165B625D461E900D6920D /* DiagramView.swift in Sources */,
+				ED96F81F2641F69F0053C67A /* AddBookViewController.swift in Sources */,
 				EDB6FBA125D2C5E600EE4CD5 /* CosView.swift in Sources */,
-				EDE3F66C25F99F7200A8B7DB /* DetailBookViewController.swift in Sources */,
-				EDAC639625FD8CA9002B9254 /* AddBookViewController.swift in Sources */,
 				ED4F870E25E6A28700EF3FB2 /* Book.swift in Sources */,
 				ED295FB025D0448300041455 /* ViewController.swift in Sources */,
 				EDB792C12624BDA800FC2904 /* ImageViewController.swift in Sources */,
 				EDACB51B25D21BB100F9B845 /* DrawingViewController.swift in Sources */,
 				EDB792C62624BE1B00FC2904 /* MyCollectionViewCell.swift in Sources */,
+				ED96F8232641F6AC0053C67A /* ErrorAddViewController.swift in Sources */,
 				ED33437B25EBA66200649054 /* TableViewCell.swift in Sources */,
 				EDC84E2525EB90D000BEFB9F /* ListViewController.swift in Sources */,
 				ED295FAC25D0448300041455 /* AppDelegate.swift in Sources */,
 				ED295FAE25D0448300041455 /* SceneDelegate.swift in Sources */,
+				ED96F81B2641F68E0053C67A /* DetailBookViewController.swift in Sources */,
 				EDA575E125E8E9F300173EA6 /* StorageManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

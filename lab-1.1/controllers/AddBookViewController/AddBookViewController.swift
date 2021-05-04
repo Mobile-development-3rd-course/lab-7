@@ -2,12 +2,10 @@
 //  AddBookViewController.swift
 //  lab-1.1
 //
-//  Created by Kirill on 14.03.2021.
+//  Created by Kirill on 05.05.2021.
 //
 
 import UIKit
-
-
 
 class AddBookViewController: UIViewController {
     
@@ -33,6 +31,7 @@ class AddBookViewController: UIViewController {
     func registerForKeyboardNotifications() {
         NotificationCenter.default.addObserver(self, selector: #selector(kbWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(kbWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
     }
     
     @IBAction func buttonTaped() {
@@ -44,6 +43,9 @@ class AddBookViewController: UIViewController {
               !subTitleText.isEmpty,
               let price = Float(priceTextField.text!),
               price > 0 else {
+            let errorController = ErrorAddViewController()
+            
+            navigationController?.pushViewController(errorController, animated: false)
             print("Incorrect input")
             return
         }
@@ -51,6 +53,7 @@ class AddBookViewController: UIViewController {
         addedBook = Book(title: titleTex, subtitle: subTitleText, price: "$\(price)")
         print(addedBook!)
         self.delegate?.transferAddedBook(book: addedBook!)
+        navigationController?.popViewController(animated: true)
     }
     
     @objc func kbWillShow(notification: NSNotification) {
