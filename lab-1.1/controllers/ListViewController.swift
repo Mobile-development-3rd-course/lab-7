@@ -77,7 +77,9 @@ class ListViewController: UIViewController {
 extension ListViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    
+        if (filteredBooks.isEmpty) {
+            print("empty")
+        }
         if !(searchBarController.searchBar.text?.isEmpty ?? true) {
             if (filteredBooks.isEmpty) {
                 tableView.backgroundView = nil
@@ -96,7 +98,6 @@ extension ListViewController: UITableViewDataSource, UITableViewDelegate {
             
             return filteredBooks.count
         }
-        
         return books.count
     }
     
