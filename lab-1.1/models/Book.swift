@@ -20,8 +20,7 @@ struct Book: Codable, Equatable {
     let subtitle: String
     let isbn13: String
     let price: String
-    let image: String
-    
+    var image: String
     enum CodingKeys: String, CodingKey {
         case title
         case subtitle

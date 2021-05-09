@@ -12,6 +12,7 @@ protocol NetworkManagerDelegate {
     func getPhotos(completion: @escaping (Data?, Error?) -> Void)
     func getImage(with coverURL: String, completion: @escaping (UIImage?, Error?) -> Void)
     func getBooks(with request: String, completion: @escaping (Data?, Error?) -> Void)
+    func getBooksDetail(with identifier: String, completion: @escaping (Data?, Error?) -> Void)
 }
 
 final class NetworkManager: NSObject, NetworkManagerDelegate, URLSessionDelegate {
@@ -77,6 +78,7 @@ extension NetworkManager {
                self?.datatask?.resume()
            }
        }
+    
     func getBooksDetail(with identifier: String, completion: @escaping (Data?, Error?) -> Void) {
         let urlString = "https://api.itbook.store/1.0/books/\(identifier)"
         guard let components = URLComponents(string: urlString), let url = components.url else {return}

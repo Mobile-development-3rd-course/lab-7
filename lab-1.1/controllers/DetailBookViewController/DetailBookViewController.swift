@@ -32,11 +32,11 @@ class DetailBookViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if (detailImage == "") {
-            imageView.image = nil
-        } else {
-            imageView.image = UIImage(named: detailImage!)
-        }
+//        if (detailImage == "") {
+//            imageView.image = nil
+//        } else {
+//            imageView.image = UIImage(named: detailImage!)
+//        }
         
         titleLabel.attributedText = makeAttributeString("Title: ", detailTitle!)
         subtitleLabel.attributedText =  makeAttributeString("Subtitle: ", detailSubtitle!)

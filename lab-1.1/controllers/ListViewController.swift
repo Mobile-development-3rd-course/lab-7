@@ -9,16 +9,18 @@ import UIKit
 
 class ListViewController: UIViewController {
     @IBOutlet var tableView: UITableView!
+    var tappedBool: Bool = false
     
-    private var data = StorageManager.shared.parseJson(forFile: "BooksList", forType: ".txt")
+//    private var data = StorageManager.shared.parseJson(forFile: "BooksList", forType: ".txt")
+    
     private var books: [Book] = []
     private var filteredBooks: [Book] = []
-    
+    var tappedAdd = false
     lazy var booksNotFoundView: UIView = {
         let emptyView = UIView(frame: CGRect(x: tableView.center.x, y: tableView.center.y, width: tableView.bounds.size.width, height: tableView.bounds.size.height))
-                let emptyLabel = UILabel()
-                emptyView.addSubview(emptyLabel)
-
+        let emptyLabel = UILabel()
+        emptyView.addSubview(emptyLabel)
+        
         emptyLabel.translatesAutoresizingMaskIntoConstraints = false
         emptyLabel.centerYAnchor.constraint(equalTo: emptyView.centerYAnchor).isActive = true
         emptyLabel.centerXAnchor.constraint(equalTo: emptyView.centerXAnchor).isActive = true
@@ -48,23 +50,24 @@ class ListViewController: UIViewController {
     }()
     
     @objc private func addBook() {
-        
         let testViewController = AddBookViewController()
         testViewController.delegate = self
-
+        print(tappedAdd)
+        tappedAdd = true
+        print(tappedAdd)
         navigationController?.pushViewController(testViewController, animated: true)
     }
     
     
-    private func getData() {
-        for book in data?.books ?? [] {
-            books.append(book)
-        }
-    }
+//    private func getData() {
+//        for book in data?.books ?? [] {
+//            books.append(book)
+//        }
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getData()
+//        getData()
         
         searchBarController.searchBar.delegate = self
         tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
@@ -77,15 +80,13 @@ class ListViewController: UIViewController {
 extension ListViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if (filteredBooks.isEmpty) {
-            print("empty")
-        }
+        booksNotFoundView.center = CGPoint(x: tableView.frame.size.width  / 2,
+                                           y: tableView.frame.size.height / 2)
+        
         if !(searchBarController.searchBar.text?.isEmpty ?? true) {
             if (filteredBooks.isEmpty) {
                 tableView.backgroundView = nil
                 tableView.separatorStyle = .none
-                booksNotFoundView.center = CGPoint(x: tableView.frame.size.width  / 2,
-                                           y: tableView.frame.size.height / 2)
                 tableView.addSubview(booksNotFoundView)
             } else {
                 
@@ -93,33 +94,43 @@ extension ListViewController: UITableViewDataSource, UITableViewDelegate {
                 for subview in self.view.subviews {
                     subview.removeFromSuperview()
                 }
-               
+                
             }
-            
             return filteredBooks.count
         }
+        
         return books.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! TableViewCell
         let book: Book
-        
-        if !(searchBarController.searchBar.text?.isEmpty ?? true) {
-            book = filteredBooks[indexPath.row]
+        if (filteredBooks.isEmpty) {
+            tableView.backgroundView = nil
+            tableView.separatorStyle = .none
+            tableView.addSubview(booksNotFoundView)
+            tableView.reloadData()
         } else {
-            book = books[indexPath.row]
+            if !(searchBarController.searchBar.text?.isEmpty ?? true) {
+                book = filteredBooks[indexPath.row]
+            } else {
+                book = books[indexPath.row]
+            }
+            
+            cell.titleIbl.text = book.title
+            cell.subTitleIbl.text = book.subtitle
+            cell.priceIbl.text = book.price
+            NetworkManager.shared.getImage(with: book.image) { image, error in
+//                print(image)
+                cell.imageIbl.image = image
+            }
+//
+//            let imageName = StorageManager.shared.getImageName(forBook: book)
+//            if (!imageName.isEmpty){
+//                    cell.imageIbl.image = UIImage(named: imageName)
+//            }
         }
         
-        cell.titleIbl.text = book.title
-        cell.subTitleIbl.text = book.subtitle
-        cell.priceIbl.text = book.price
-        
-        let imageName = StorageManager.shared.getImageName(forBook: book)
-        if (!imageName.isEmpty){
-            cell.imageIbl.image = UIImage(named: imageName)
-        }
-    
         return cell
     }
     
@@ -132,23 +143,29 @@ extension ListViewController: UITableViewDataSource, UITableViewDelegate {
         } else {
             book = books[indexPath.row]
         }
+                let detailBook = DetailBookViewController()
+        NetworkManager.shared.getBooksDetail(with: book.isbn13, completion: { data, error in
+            print(data)
+            let jsonDetail = try? JSONDecoder().decode(DetailedBook.self, from: data!)
+            print(jsonDetail)
+//            NetworkManager.shared.getImage(with: jsonDetail!.image) { image, error in
+//                detailBook.detailImage = image
+//            }
+            detailBook.detailImage = jsonDetail?.image
+            detailBook.detailTitle = jsonDetail?.title
+            detailBook.detailSubtitle = jsonDetail?.subtitle
+            detailBook.detailDesc = jsonDetail?.desc
+                    detailBook.detailAuthors = jsonDetail?.authors
+                    detailBook.detailPublisher = jsonDetail?.publisher
+                    detailBook.detailPages = jsonDetail?.pages
+                    detailBook.detailYear = jsonDetail?.year
+                    detailBook.detailRating = jsonDetail?.rating
+        })
         
-        guard let detailBookByIdentifier = StorageManager.shared.parseDetailBookJson(ForIdentifier: book.isbn13) else {
-            return
-        }
-        
-        let detailBook = DetailBookViewController()
+
         navigationController?.pushViewController(detailBook, animated: true)
         
-        detailBook.detailImage = detailBookByIdentifier.image
-        detailBook.detailTitle = detailBookByIdentifier.title
-        detailBook.detailSubtitle = detailBookByIdentifier.subtitle
-        detailBook.detailDesc = detailBookByIdentifier.desc
-        detailBook.detailAuthors = detailBookByIdentifier.authors
-        detailBook.detailPublisher = detailBookByIdentifier.publisher
-        detailBook.detailPages = detailBookByIdentifier.pages
-        detailBook.detailYear = detailBookByIdentifier.year
-        detailBook.detailRating = detailBookByIdentifier.rating
+
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -175,15 +192,22 @@ extension ListViewController: UITableViewDataSource, UITableViewDelegate {
 
 extension ListViewController: UINavigationControllerDelegate, UISearchBarDelegate, UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
-        
+        let searchBarLowercasedText = (searchController.searchBar.searchTextField.text?.lowercased())
+        NetworkManager.shared.getBooks(with: searchBarLowercasedText!) { data, error in
+            let jsonBooks = try? JSONDecoder().decode(BooksList.self, from: data!)
+            jsonBooks?.books.forEach({book in
+                if(!self.books.contains(book)) {
+                    self.books.append(book)
+                }
+            })
+        }
         filteredBooks = books.filter ({
-            
-            let searchBarLowercasedText = (searchController.searchBar.searchTextField.text?.lowercased())
             return $0.title.lowercased().contains(searchBarLowercasedText!) ||
                 $0.subtitle.lowercased().contains(searchBarLowercasedText!) ||
                 $0.isbn13.lowercased().contains(searchBarLowercasedText!) ||
                 $0.price.lowercased().contains(searchBarLowercasedText!)
         })
+        
         tableView.reloadData()
     }
     
