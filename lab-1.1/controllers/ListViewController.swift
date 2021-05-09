@@ -70,6 +70,7 @@ class ListViewController: UIViewController {
         tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
         tableView.delegate = self
         tableView.dataSource = self
+        
     }
 }
 
@@ -117,7 +118,7 @@ extension ListViewController: UITableViewDataSource, UITableViewDelegate {
         if (!imageName.isEmpty){
             cell.imageIbl.image = UIImage(named: imageName)
         }
-        
+    
         return cell
     }
     

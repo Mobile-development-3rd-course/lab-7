@@ -12,7 +12,6 @@ class MyCollectionViewCell: UICollectionViewCell {
     private let imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
-        
         return imageView
     }()
     
@@ -20,6 +19,7 @@ class MyCollectionViewCell: UICollectionViewCell {
         super.init(frame: frame)
         contentView.addSubview(imageView)
         contentView.clipsToBounds = true
+
     }
     
     required init?(coder: NSCoder) {
@@ -33,6 +33,7 @@ class MyCollectionViewCell: UICollectionViewCell {
     }
     
     func setupCell (image: UIImage?) {
+        backgroundColor = .red
         imageView.image = image
     }
     

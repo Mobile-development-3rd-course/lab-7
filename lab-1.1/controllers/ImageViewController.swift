@@ -9,8 +9,8 @@ import UIKit
 
 class ImageViewController: UIViewController{
     
-    var listOfPictures: [UIImage] = []
-    
+    var listOfPictures = [UIImage]()
+    var listOfPicturesFormServer = [Photo]()
     var collectionView: UICollectionView! = nil
     
     override func viewDidLoad() {
@@ -18,9 +18,9 @@ class ImageViewController: UIViewController{
         
         configureCollectionView()
         view.addSubview(collectionView)
-        
+        getPhotosFromServer()
+        print(listOfPicturesFormServer)
     }
-    
     @IBAction func addTapped() {
         openPhotos()
         
@@ -32,6 +32,7 @@ class ImageViewController: UIViewController{
         collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         collectionView.dataSource = self
     }
+    
 }
 
 extension ImageViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -50,9 +51,28 @@ extension ImageViewController: UIImagePickerControllerDelegate, UINavigationCont
         collectionView.reloadData()
         picker.dismiss(animated: true, completion: nil)
     }
+    
 }
 
 extension ImageViewController:UICollectionViewDataSource {
+    
+    func getPhotosFromServer() {
+        NetworkManager.shared.getPhotos{ [weak self](data, error) in
+            if let data = data {
+                let jsonPhotos = try? JSONDecoder().decode(Photos.self, from: data)
+                jsonPhotos?.hits.forEach({ photo in
+                    NetworkManager.shared.getImage(with: photo.largeImageURL) { [weak self] (image, error) in
+                        self!.listOfPictures.append(image!)
+                        self?.collectionView.reloadData()
+                    }
+                    self?.collectionView.reloadData()
+                })
+            } else {
+                print(error!)
+            }
+        }
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return listOfPictures.count
     }
@@ -60,7 +80,7 @@ extension ImageViewController:UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MyCollectionViewCell.identifier, for: indexPath) as! MyCollectionViewCell
         cell.setupCell(image: listOfPictures[indexPath.item])
-        
+        print(listOfPictures)
         return cell
     }
     

@@ -42,6 +42,7 @@ extension StorageManager {
         print("file are not in storage")
         return nil
     }
+    
     func getImageName (forBook book: Book) -> String {
         return book.image
     }
