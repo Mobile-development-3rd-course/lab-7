@@ -57,11 +57,21 @@ extension ImageViewController: UIImagePickerControllerDelegate, UINavigationCont
 extension ImageViewController:UICollectionViewDataSource {
     
     func getPhotosFromServer() {
+        let spinner = SpinnerViewController()
+        view.addSubview(spinner.view)
+        spinner.view.translatesAutoresizingMaskIntoConstraints = false
+        spinner.view.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        spinner.view.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        spinner.view.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        spinner.view.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        
         NetworkManager.shared.getPhotos{ [weak self](data, error) in
             if let data = data {
                 let jsonPhotos = try? JSONDecoder().decode(Photos.self, from: data)
                 jsonPhotos?.hits.forEach({ photo in
                     NetworkManager.shared.getImage(with: photo.largeImageURL) { [weak self] (image, error) in
+                        spinner.view.removeFromSuperview()
+                        spinner.removeFromParent()
                         self!.listOfPictures.append(image!)
                         self?.collectionView.reloadData()
                     }

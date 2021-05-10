@@ -9,10 +9,10 @@ import UIKit
 
 class ListViewController: UIViewController {
     @IBOutlet var tableView: UITableView!
-
+    
     private var books: [Book] = []
     private var filteredBooks: [Book] = []
-    var tappedAdd = false
+    
     lazy var booksNotFoundView: UIView = {
         let emptyView = UIView(frame: CGRect(x: tableView.center.x, y: tableView.center.y, width: tableView.bounds.size.width, height: tableView.bounds.size.height))
         let emptyLabel = UILabel()
@@ -54,7 +54,7 @@ class ListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         searchBarController.searchBar.delegate = self
         tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
         tableView.delegate = self
@@ -75,7 +75,6 @@ extension ListViewController: UITableViewDataSource, UITableViewDelegate {
                 tableView.separatorStyle = .none
                 tableView.addSubview(booksNotFoundView)
             } else {
-                
                 tableView.separatorStyle = .singleLine
                 for subview in self.view.subviews {
                     subview.removeFromSuperview()
@@ -157,16 +156,28 @@ extension ListViewController: UITableViewDataSource, UITableViewDelegate {
 
 extension ListViewController: UINavigationControllerDelegate, UISearchBarDelegate, UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
+        filteredBooks.removeAll()
+        
         let searchBarLowercasedText = (searchController.searchBar.searchTextField.text?.lowercased())
         NetworkManager.shared.getBooks(with: searchBarLowercasedText!) { data, error in
             let jsonBooks = try? JSONDecoder().decode(BooksList.self, from: data!)
             jsonBooks?.books.forEach({book in
                 if(!self.books.contains(book)) {
+                    
                     self.books.append(book)
                 }
             })
+            
         }
+        let spinner = SpinnerViewController()
+        
+        tableView.addSubview(spinner.view)
+        spinner.view.frame = CGRect(x: tableView.center.x, y: tableView.center.y - 100, width: 10, height: 10)
         filteredBooks = books.filter ({
+            spinner.willMove(toParent: nil)
+            spinner.view.removeFromSuperview()
+            spinner.removeFromParent()
+            
             return $0.title.lowercased().contains(searchBarLowercasedText!) ||
                 $0.subtitle.lowercased().contains(searchBarLowercasedText!) ||
                 $0.isbn13.lowercased().contains(searchBarLowercasedText!) ||
@@ -182,6 +193,7 @@ extension ListViewController: UINavigationControllerDelegate, UISearchBarDelegat
             subview.removeFromSuperview()
         }
         print("Cancel tapped")
+        
     }
 }
 

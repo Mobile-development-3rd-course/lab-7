@@ -52,6 +52,8 @@
 		EDD02FDF25EBB8E400784571 /* Image_06.png in Resources */ = {isa = PBXBuildFile; fileRef = EDD02FD725EBB8E400784571 /* Image_06.png */; };
 		EDD02FE025EBB8E400784571 /* Image_05.png in Resources */ = {isa = PBXBuildFile; fileRef = EDD02FD825EBB8E400784571 /* Image_05.png */; };
 		EDD02FE125EBB8E400784571 /* Image_02.png in Resources */ = {isa = PBXBuildFile; fileRef = EDD02FD925EBB8E400784571 /* Image_02.png */; };
+		EDEAF33726496931005046D4 /* SpinnerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEAF33526496931005046D4 /* SpinnerViewController.swift */; };
+		EDEAF33826496931005046D4 /* SpinnerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDEAF33626496931005046D4 /* SpinnerViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -102,6 +104,8 @@
 		EDD02FD725EBB8E400784571 /* Image_06.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Image_06.png; sourceTree = "<group>"; };
 		EDD02FD825EBB8E400784571 /* Image_05.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Image_05.png; sourceTree = "<group>"; };
 		EDD02FD925EBB8E400784571 /* Image_02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Image_02.png; sourceTree = "<group>"; };
+		EDEAF33526496931005046D4 /* SpinnerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerViewController.swift; sourceTree = "<group>"; };
+		EDEAF33626496931005046D4 /* SpinnerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpinnerViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +122,7 @@
 		ED15076125D4BC9B0021CFB8 /* controllers */ = {
 			isa = PBXGroup;
 			children = (
+				EDEAF3342649690F005046D4 /* SpinnerViewController */,
 				ED96F8182641F5B90053C67A /* AddBookViewController */,
 				ED96F8172641F5AC0053C67A /* DetailBookViewController */,
 				EDACB51A25D21BB100F9B845 /* DrawingViewController.swift */,
@@ -264,6 +269,15 @@
 			path = ImageViewCell;
 			sourceTree = "<group>";
 		};
+		EDEAF3342649690F005046D4 /* SpinnerViewController */ = {
+			isa = PBXGroup;
+			children = (
+				EDEAF33526496931005046D4 /* SpinnerViewController.swift */,
+				EDEAF33626496931005046D4 /* SpinnerViewController.xib */,
+			);
+			path = SpinnerViewController;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -332,6 +346,7 @@
 				ED80B87A25F3B0DE0021D5F1 /* 9781449342753.txt in Resources */,
 				ED295FB825D0448400041455 /* LaunchScreen.storyboard in Resources */,
 				EDD02FE125EBB8E400784571 /* Image_02.png in Resources */,
+				EDEAF33826496931005046D4 /* SpinnerViewController.xib in Resources */,
 				ED4F870025E6A19B00EF3FB2 /* BooksList.txt in Resources */,
 				ED80B87F25F3B0DE0021D5F1 /* 9780321856715.txt in Resources */,
 				EDD02FE025EBB8E400784571 /* Image_05.png in Resources */,
@@ -375,6 +390,7 @@
 				ED295FAC25D0448300041455 /* AppDelegate.swift in Sources */,
 				ED295FAE25D0448300041455 /* SceneDelegate.swift in Sources */,
 				ED96F81B2641F68E0053C67A /* DetailBookViewController.swift in Sources */,
+				EDEAF33726496931005046D4 /* SpinnerViewController.swift in Sources */,
 				EDA575E125E8E9F300173EA6 /* StorageManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
