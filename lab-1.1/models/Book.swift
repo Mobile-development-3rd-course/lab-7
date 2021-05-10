@@ -21,6 +21,7 @@ struct Book: Codable, Equatable {
     let isbn13: String
     let price: String
     var image: String
+    
     enum CodingKeys: String, CodingKey {
         case title
         case subtitle
@@ -28,6 +29,7 @@ struct Book: Codable, Equatable {
         case price
         case image
     }
+    
     init(title: String, subtitle: String, price: String){
         self.title = title
         self.subtitle = subtitle

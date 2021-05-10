@@ -9,10 +9,7 @@ import UIKit
 
 class ListViewController: UIViewController {
     @IBOutlet var tableView: UITableView!
-    var tappedBool: Bool = false
-    
-//    private var data = StorageManager.shared.parseJson(forFile: "BooksList", forType: ".txt")
-    
+
     private var books: [Book] = []
     private var filteredBooks: [Book] = []
     var tappedAdd = false
@@ -52,23 +49,12 @@ class ListViewController: UIViewController {
     @objc private func addBook() {
         let testViewController = AddBookViewController()
         testViewController.delegate = self
-        print(tappedAdd)
-        tappedAdd = true
-        print(tappedAdd)
         navigationController?.pushViewController(testViewController, animated: true)
     }
     
-    
-//    private func getData() {
-//        for book in data?.books ?? [] {
-//            books.append(book)
-//        }
-//    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-//        getData()
-        
+
         searchBarController.searchBar.delegate = self
         tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
         tableView.delegate = self
@@ -121,14 +107,8 @@ extension ListViewController: UITableViewDataSource, UITableViewDelegate {
             cell.subTitleIbl.text = book.subtitle
             cell.priceIbl.text = book.price
             NetworkManager.shared.getImage(with: book.image) { image, error in
-//                print(image)
                 cell.imageIbl.image = image
             }
-//
-//            let imageName = StorageManager.shared.getImageName(forBook: book)
-//            if (!imageName.isEmpty){
-//                    cell.imageIbl.image = UIImage(named: imageName)
-//            }
         }
         
         return cell
@@ -143,29 +123,14 @@ extension ListViewController: UITableViewDataSource, UITableViewDelegate {
         } else {
             book = books[indexPath.row]
         }
-                let detailBook = DetailBookViewController()
-        NetworkManager.shared.getBooksDetail(with: book.isbn13, completion: { data, error in
-            print(data)
-            let jsonDetail = try? JSONDecoder().decode(DetailedBook.self, from: data!)
-            print(jsonDetail)
-//            NetworkManager.shared.getImage(with: jsonDetail!.image) { image, error in
-//                detailBook.detailImage = image
-//            }
-            detailBook.detailImage = jsonDetail?.image
-            detailBook.detailTitle = jsonDetail?.title
-            detailBook.detailSubtitle = jsonDetail?.subtitle
-            detailBook.detailDesc = jsonDetail?.desc
-                    detailBook.detailAuthors = jsonDetail?.authors
-                    detailBook.detailPublisher = jsonDetail?.publisher
-                    detailBook.detailPages = jsonDetail?.pages
-                    detailBook.detailYear = jsonDetail?.year
-                    detailBook.detailRating = jsonDetail?.rating
-        })
-        
-
-        navigationController?.pushViewController(detailBook, animated: true)
-        
-
+        if (book.isbn13 == "noid" || book.isbn13 == "") {
+            print("Can not show detail book because no file on the server.")
+        } else {
+            let detailBook = DetailBookViewController()
+            detailBook.isbn = book.isbn13
+            
+            self.navigationController?.pushViewController(detailBook, animated: true)
+        }
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {

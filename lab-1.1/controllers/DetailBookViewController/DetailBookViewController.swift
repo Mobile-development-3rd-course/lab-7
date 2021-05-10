@@ -20,32 +20,25 @@ class DetailBookViewController: UIViewController {
     @IBOutlet var yearLabel: UILabel!
     @IBOutlet var pagesLabel: UILabel!
     
-    var detailImage: String?
-    var detailTitle: String?
-    var detailSubtitle: String?
-    var detailDesc: String?
-    var detailAuthors: String?
-    var detailPublisher: String?
-    var detailPages: String?
-    var detailYear: String?
-    var detailRating: String?
+    var isbn: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        if (detailImage == "") {
-//            imageView.image = nil
-//        } else {
-//            imageView.image = UIImage(named: detailImage!)
-//        }
-        
-        titleLabel.attributedText = makeAttributeString("Title: ", detailTitle!)
-        subtitleLabel.attributedText =  makeAttributeString("Subtitle: ", detailSubtitle!)
-        descLabel.attributedText =  makeAttributeString("Description: ", detailDesc!)
-        authorsLabel.attributedText =  makeAttributeString("Authors: ", detailAuthors!)
-        publisherLabel.attributedText =  makeAttributeString("Publisher: ", detailPublisher!)
-        pagesLabel.attributedText =  makeAttributeString("Pages: ", detailPages!)
-        yearLabel.attributedText =  makeAttributeString("Year: ", detailYear!)
-        ratingLabel.attributedText =  makeAttributeString("Rating: ", detailRating!)
+        NetworkManager.shared.getBooksDetail(with: isbn!, completion: { data, error in
+            let jsonDetail = try? JSONDecoder().decode(DetailedBook.self, from: data!)
+                NetworkManager.shared.getImage(with: jsonDetail!.image) { image, error in
+                    self.imageView.image = image
+            }
+            
+            self.titleLabel.attributedText = self.makeAttributeString("Title: ", jsonDetail!.title)
+            self.subtitleLabel.attributedText = self.makeAttributeString("Subtitle: ", jsonDetail!.subtitle)
+            self.descLabel.attributedText = self.makeAttributeString("Description: ", jsonDetail!.desc)
+            self.authorsLabel.attributedText = self.makeAttributeString("Authors: ", jsonDetail!.authors)
+            self.publisherLabel.attributedText = self.makeAttributeString("Publisher: ", jsonDetail!.publisher)
+            self.pagesLabel.attributedText = self.makeAttributeString("Pages: ", jsonDetail!.pages)
+            self.yearLabel.attributedText = self.makeAttributeString("Year: ", jsonDetail!.year)
+            self.ratingLabel.attributedText = self.makeAttributeString("Rating: ", jsonDetail!.rating)
+        })
     }
     
     private func makeAttributeString(_ header: String, _ mainText: String) -> NSMutableAttributedString {

@@ -63,21 +63,21 @@ extension NetworkManager {
     }
     
     func getBooks(with request: String, completion: @escaping (Data?, Error?) -> Void) {
-           let urlString = "https://api.itbook.store/1.0/search/\(request)"
-            
-           guard let components = URLComponents(string: urlString), let url = components.url else {return}
-           DispatchQueue.global(qos: .background).async {[weak self] in
-               self?.datatask = self?.urlsession.dataTask(with: URLRequest(url: url)) { (data, response, error) in
-                   guard let httpresponse = response as? HTTPURLResponse,
-                       let data = data,
-                       httpresponse.statusCode == 200 else {return}
-                   DispatchQueue.main.async {
-                       completion(data, nil)
-                   }
-               }
-               self?.datatask?.resume()
-           }
-       }
+        let urlString = "https://api.itbook.store/1.0/search/\(request)"
+        
+        guard let components = URLComponents(string: urlString), let url = components.url else {return}
+        DispatchQueue.global(qos: .background).async {[weak self] in
+            self?.datatask = self?.urlsession.dataTask(with: URLRequest(url: url)) { (data, response, error) in
+                guard let httpresponse = response as? HTTPURLResponse,
+                      let data = data,
+                      httpresponse.statusCode == 200 else {return}
+                DispatchQueue.main.async {
+                    completion(data, nil)
+                }
+            }
+            self?.datatask?.resume()
+        }
+    }
     
     func getBooksDetail(with identifier: String, completion: @escaping (Data?, Error?) -> Void) {
         let urlString = "https://api.itbook.store/1.0/books/\(identifier)"
@@ -86,8 +86,8 @@ extension NetworkManager {
             self?.datatask = self?.urlsession.dataTask(with: URLRequest(url: url)) { (data, response, error) in
                 guard let httpresponse = response as? HTTPURLResponse,
                       let data = data,
-                      httpresponse.statusCode == 200 else {return}
-                print(httpresponse.statusCode)
+                      httpresponse.statusCode == 200 else { return }
+                print("Status code:", httpresponse.statusCode)
                 DispatchQueue.main.async {
                     completion(data, nil)
                 }
