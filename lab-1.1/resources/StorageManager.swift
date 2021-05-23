@@ -14,7 +14,7 @@ final class StorageManager {
 
 extension StorageManager {
     
-    private func readLocalFile(forName name: String, forType type: String) -> Data? {
+    func readLocalFile(forName name: String, forType type: String) -> Data? {
         do {
             if let bundlePath = Bundle.main.path(forResource: name, ofType: type),
                let jsonData = try String(contentsOfFile: bundlePath).data(using: .utf8) {

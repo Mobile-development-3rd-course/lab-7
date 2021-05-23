@@ -50,7 +50,7 @@ class AddBookViewController: UIViewController {
             return
         }
         
-        addedBook = Book(title: titleTex, subtitle: subTitleText, price: "$\(price)")
+        addedBook = Book(title: titleTex, subtitle: subTitleText, price: "$\(price)", isbn13: "", image: "")
         print(addedBook!)
         self.delegate?.transferAddedBook(book: addedBook!)
         navigationController?.popViewController(animated: true)

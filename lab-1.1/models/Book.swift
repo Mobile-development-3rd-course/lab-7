@@ -30,13 +30,14 @@ struct Book: Codable, Equatable {
         case image
     }
     
-    init(title: String, subtitle: String, price: String){
+    init(title: String, subtitle: String, price: String, isbn13: String, image: String){
         self.title = title
         self.subtitle = subtitle
         self.price = price
-        self.isbn13 = "noid"
-        self.image = ""
+        self.isbn13 = isbn13
+        self.image = image
     }
+    
 }
 
 struct DetailedBook: Codable {
