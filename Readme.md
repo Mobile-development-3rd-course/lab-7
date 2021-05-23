@@ -6,9 +6,9 @@
 Кафедра обчислювальної техніки<br><br><br><br>
 </strong></div>
 
-<div align = "center" bold = ""><strong>ЛАБОРАТОРНА РОБОТА № 6</strong><br><br>
+<div align = "center" bold = ""><strong>ЛАБОРАТОРНА РОБОТА № 7</strong><br><br>
 з дисципліни «Розроблення клієнтських додатків для мобільних платформ»<br>
-на тему «Робота з мережею, використання URL, URLSession, URLSessionDataTask, URLResponse, HTTPURLResponse, DispatchQueue, UIActivityIndicatorView»</div><br><br><br><br>
+на тему «Використання Core data, SQLite»</div><br><br><br><br>
 
 <div align = "right" >Виконав:<br>
 студент ІІІ курсу ФІОТ<br>                        
@@ -21,10 +21,10 @@
 <strong>Варіант роботи номер 2.</strong><br>
 <strong>Скріншоти роботи застосунка:</strong><br>
 Відео роботи застосунка:<br>
-https://drive.google.com/file/d/1Q3JrInqilcpaiLn-VLu4iEDcZCGGpTv1/view
+https://drive.google.com/file/d/1f8M40lZQR8VeE-o6s6axgu6qYq_-f5q4/view?usp=sharing
 
 
 
 <strong>Лістинг коду ви можете побачити в цьому репозиторію.</strong><br>
 <strong>Висновок:</strong><br>
-На шостій лабораторній роботі я познайомився з роботою з мережею, використав URL, URLSession, URLSessionDataTask, URLResponse, HTTPURLResponse, DispatchQueue, UIActivityIndicatorView. Розробив відповідний застосунок.
+На сьомій лабораторній роботі я познайомився з роботою баз даних, використав SQLlite для мови програмування swift. Розробив відповідний застосунок.
